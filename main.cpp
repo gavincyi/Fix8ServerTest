@@ -30,26 +30,50 @@ int main(int argc, char** argv) {
 	LOG(INFO) << "Starting...";
 
 	// Start fix8 server
-	auto server = 
-		new FIX8::ServerSession<fix_session_server>(FIX8::FIXT1100::ctx(),
-													"/root/Downloads/fix8-1.3.4/test/hf_server.xml",
-													"TEX1");
-
-	LOG(INFO) << "Fix server is initialized";
-
-	while (true)
+	if (argc != 2)
 	{
-		if (!server->poll())
+		LOG(WARNING) << "Arguments must be larger than 2";
+		return 0;
+	}
+
+	if (strcmp("server", argv[1]) == 0)
+	{
+		auto server = 
+			new FIX8::ServerSession<fix_session_server>(FIX8::FIXT1100::ctx(),
+														"/root/Downloads/fix8-1.3.4/test/hf_server.xml",
+														"TEX1");
+
+		LOG(INFO) << "Fix server is initialized";
+
+		while (true)
 		{
-			continue;
+			if (!server->poll())
+			{
+				continue;
+			}
+
+			LOG(INFO) << "Polled!";
+
+			auto inst =
+				new SessionInstance<fix_session_server>(*server);
+			inst->start(true);
+			inst->stop();
 		}
+	} 
+	else if (strcmp("client", argv[1]) == 0) 
+	{
+		auto client = 
+			new FIX8::ClientSession<fix_session_client>(FIX8::FIXT1100::ctx(),
+														"/root/Downloads/fix8-1.3.4/test/hf_client.xml",
+														"TEX1");
 
-		LOG(INFO) << "Polled!";
+		LOG(INFO) << "Fix server is initialized";
 
-		auto inst =
-			new SessionInstance<fix_session_server>(*server);
-		inst->start(true);
-		inst->stop();
+		client->start(true, 0 ,0);
+	}
+	else
+	{
+		LOG(WARNING) << "Cannot recognize the mode : " << argv[1];
 	}
 
 	LOG(INFO) << "Process killed";
