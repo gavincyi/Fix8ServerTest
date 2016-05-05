@@ -194,8 +194,19 @@ class fix_session_server : public FIX8::Session
    fix_router_server _router; 
 
 public:
-   fix_session_server(const FIX8::F8MetaCntx& ctx, FIX8::Persister *persist=0,
-      FIX8::Logger *logger=0, FIX8::Logger *plogger=0) : Session(ctx, persist, logger, plogger), _router(*this) {} 
+	fix_session_server(const FIX8::F8MetaCntx& ctx, 
+					  const FIX8::SessionID& sid,
+		   			  FIX8::Persister *persist=0,
+      				  FIX8::Logger *logger=0, 
+		   			  FIX8::Logger *plogger=0) : 
+	 FIX8::Session(ctx, sid, persist, logger, plogger), _router(*this) {} 
+
+	fix_session_server(const FIX8::F8MetaCntx& ctx, 
+					  const FIX8::sender_comp_id& sci,
+		   			  FIX8::Persister *persist=0,
+      				  FIX8::Logger *logger=0, 
+		   			  FIX8::Logger *plogger=0) : 
+	 FIX8::Session(ctx, sci, persist, logger, plogger), _router(*this) {} 
 
    // Override these methods if required but remember to call the base class method first.
    // bool handle_logon(const unsigned seqnum, const FIX8::Message *msg);
@@ -219,13 +230,18 @@ public:
    // Override these methods to intercept admin and application methods.
    // bool handle_admin(const unsigned seqnum, const FIX8::Message *msg);
 
-   bool handle_application(const unsigned seqnum, const FIX8::Message *&msg);
+   bool handle_application(const unsigned seqnum, const FIX8::Message *&msg)
+   {
+      return enforce(seqnum, msg) || msg->process(_router);
+   }
    /* In your compilation unit, this should be implemented with something like the following:
    bool fix_session_server::handle_application(const unsigned seqnum, const FIX8::Message *&msg)
    {
       return enforce(seqnum, msg) || msg->process(_router);
    }
    */
+
+   virtual ~fix_session_server(){}
 };
 
 #endif // FIX8_6669785F73657373696F6E2E687070_

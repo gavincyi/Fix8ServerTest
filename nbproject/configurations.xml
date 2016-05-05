@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>fix_classes.hpp</itemPath>
+      <itemPath>fix_router.hpp</itemPath>
+      <itemPath>fix_session.hpp</itemPath>
+      <itemPath>fix_types.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +16,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>fix_classes.cpp</itemPath>
+      <itemPath>fix_traits.cpp</itemPath>
+      <itemPath>fix_types.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -37,6 +44,7 @@
       <compileType>
         <ccTool>
           <incDir>
+            <pElem>/usr/local/include</pElem>
             <pElem>/root/libBlitzUtil/src</pElem>
           </incDir>
           <commandLine>-std=c++11</commandLine>
@@ -50,9 +58,28 @@
             <linkerLibLibItem>g3logger</linkerLibLibItem>
             <linkerLibLibItem>boost_date_time</linkerLibLibItem>
             <linkerLibLibItem>libblitzutil</linkerLibLibItem>
+            <linkerLibLibItem>PocoFoundation</linkerLibLibItem>
+            <linkerLibLibItem>PocoNet</linkerLibLibItem>
+            <linkerLibLibItem>PocoUtil</linkerLibLibItem>
+            <linkerLibLibItem>PocoXML</linkerLibLibItem>
+            <linkerLibLibItem>fix8</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="fix_classes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fix_classes.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fix_router.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fix_session.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fix_traits.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fix_types.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fix_types.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -76,6 +103,20 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="fix_classes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fix_classes.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fix_router.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fix_session.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="fix_traits.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fix_types.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="fix_types.hpp" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

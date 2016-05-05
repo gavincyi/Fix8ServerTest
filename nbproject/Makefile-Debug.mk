@@ -35,6 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/fix_classes.o \
+	${OBJECTDIR}/fix_traits.o \
+	${OBJECTDIR}/fix_types.o \
 	${OBJECTDIR}/main.o
 
 
@@ -52,7 +55,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/usr/local/lib -L/root/libBlitzUtil/dist/Release/None-Linux-x86/ -lg3logger -lboost_date_time -llibblitzutil
+LDLIBSOPTIONS=-L/usr/local/lib -L/root/libBlitzUtil/dist/Release/None-Linux-x86/ -lg3logger -lboost_date_time -llibblitzutil -lPocoFoundation -lPocoNet -lPocoUtil -lPocoXML -lfix8
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -62,10 +65,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fix8servertest: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fix8servertest ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/fix_classes.o: fix_classes.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_classes.o fix_classes.cpp
+
+${OBJECTDIR}/fix_traits.o: fix_traits.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_traits.o fix_traits.cpp
+
+${OBJECTDIR}/fix_types.o: fix_types.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_types.o fix_types.cpp
+
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
