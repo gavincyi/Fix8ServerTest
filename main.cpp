@@ -56,8 +56,14 @@ int main(int argc, char** argv) {
 
 			auto inst =
 				new SessionInstance<fix_session_server>(*server);
+
+			LOG(INFO) << "Starting a session instance";
 			inst->start(true);
+
+			LOG(INFO) << "Closing a session instance";
 			inst->stop();
+
+			LOG(INFO) << "Closed a session instance";
 		}
 	} 
 	else if (strcmp("client", argv[1]) == 0) 
@@ -67,9 +73,9 @@ int main(int argc, char** argv) {
 														"/root/Downloads/fix8-1.3.4/test/hf_client.xml",
 														"DLD1");
 
-		LOG(INFO) << "Fix server is initialized";
+		LOG(INFO) << "Fix client is initialized";
 
-		client->start(true, 0 ,0);
+		client->start(true);
 	}
 	else
 	{

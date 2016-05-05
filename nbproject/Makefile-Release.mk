@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=None-Linux-x86
 CND_DLIB_EXT=so
 CND_CONF=Release
 CND_DISTDIR=dist
@@ -45,8 +45,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=
-CXXFLAGS=
+CCFLAGS=-std=c++11
+CXXFLAGS=-std=c++11
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -55,7 +55,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L/usr/local/lib -L/root/libBlitzUtil/dist/Release/None-Linux-x86/ -lg3logger -lboost_date_time -llibblitzutil -lPocoFoundation -lPocoNet -lPocoUtil -lfix8
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -68,22 +68,22 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/fix8servertest: ${OBJECTFILES}
 ${OBJECTDIR}/fix_classes.o: fix_classes.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_classes.o fix_classes.cpp
+	$(COMPILE.cc) -O2 -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_classes.o fix_classes.cpp
 
 ${OBJECTDIR}/fix_traits.o: fix_traits.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_traits.o fix_traits.cpp
+	$(COMPILE.cc) -O2 -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_traits.o fix_traits.cpp
 
 ${OBJECTDIR}/fix_types.o: fix_types.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_types.o fix_types.cpp
+	$(COMPILE.cc) -O2 -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/fix_types.o fix_types.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -O2 -I/usr/local/include -I/root/libBlitzUtil/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
