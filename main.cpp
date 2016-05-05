@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
 		auto client = 
 			new FIX8::ClientSession<fix_session_client>(FIX8::FIXT1100::ctx(),
 														"/root/Downloads/fix8-1.3.4/test/hf_client.xml",
-														"TEX1");
+														"DLD1");
 
 		LOG(INFO) << "Fix server is initialized";
 
