@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------
-// *** f8c generated file: DO NOT EDIT! Created: 2016-05-05 06:54:25 ***
+// *** f8c generated file: DO NOT EDIT! Created: 2016-05-05 07:07:03 ***
 //-------------------------------------------------------------------------------------------------
 /*
 
@@ -58,7 +58,7 @@ HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #define FIX8_6669785F726F757465722E687070_
 
 namespace FIX8 {
-namespace blitzkrieg {
+namespace FIXT1100 {
 
 //-------------------------------------------------------------------------------------------------
 class fix_Router : public Router
@@ -187,6 +187,6 @@ public:
    virtual bool operator() (const class DerivativeSecurityListRequest *msg) const { return false; }
 };
 
-} // namespace blitzkrieg
+} // namespace FIXT1100
 } // namespace FIX8
 #endif // FIX8_6669785F726F757465722E687070_

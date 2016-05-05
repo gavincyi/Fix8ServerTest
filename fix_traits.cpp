@@ -1,5 +1,5 @@
 //-------------------------------------------------------------------------------------------------
-// *** f8c generated file: DO NOT EDIT! Created: 2016-05-05 06:54:25 ***
+// *** f8c generated file: DO NOT EDIT! Created: 2016-05-05 07:07:03 ***
 //-------------------------------------------------------------------------------------------------
 /*
 
@@ -83,7 +83,7 @@ HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 #include "fix_classes.hpp"
 //-------------------------------------------------------------------------------------------------
 namespace FIX8 {
-namespace blitzkrieg {
+namespace FIXT1100 {
 
 //-------------------------------------------------------------------------------------------------
 // Common group traits
@@ -11361,5 +11361,5 @@ const FieldTrait *DerivativeSecurityListRequest::NoDerivativeInstrumentParties::
 const FieldTrait_Hash_Array& DerivativeSecurityListRequest::NoDerivativeInstrumentParties::NoDerivativeInstrumentPartySubIDs::_ftha(NoDerivativeInstrumentPartySubIDsV1_ftha);
 const MsgType& DerivativeSecurityListRequest::NoDerivativeInstrumentParties::NoDerivativeInstrumentPartySubIDs::_msgtype(NoDerivativeInstrumentPartySubIDsV1_msgtype);
 
-} // namespace blitzkrieg
+} // namespace FIXT1100
 } // namespace FIX8
