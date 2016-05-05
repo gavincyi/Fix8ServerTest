@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 	LOG(INFO) << "Starting...";
 
 	// Start fix8 server
-	if (argc != 2)
+	if (argc != 3)
 	{
 		LOG(WARNING) << "Arguments must be larger than 2";
 		return 0;
@@ -40,8 +40,8 @@ int main(int argc, char** argv) {
 	{
 		auto server = 
 			new FIX8::ServerSession<fix_session_server>(FIX8::FIXT1100::ctx(),
-														"/root/Downloads/fix8-1.3.4/test/hf_server.xml",
-														"TEX1");
+														"hf_server.xml",
+														argv[2]);
 
 		LOG(INFO) << "Fix server is initialized";
 
@@ -70,8 +70,8 @@ int main(int argc, char** argv) {
 	{
 		auto client = 
 			new FIX8::ClientSession<fix_session_client>(FIX8::FIXT1100::ctx(),
-														"/root/Downloads/fix8-1.3.4/test/hf_client.xml",
-														"DLD1");
+														"hf_client.xml",
+														argv[2]);
 
 		LOG(INFO) << "Fix client is initialized";
 
